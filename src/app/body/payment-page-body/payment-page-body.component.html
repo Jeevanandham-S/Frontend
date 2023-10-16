@@ -1,0 +1,41 @@
+<app-payment-page-header></app-payment-page-header>
+
+<div class="payment-main-body">
+
+    <h2>Payments & Recharges</h2>
+
+    <div *ngIf="isFresher" style="text-align: center;">
+        <h1>No bills available!!</h1>
+    </div>
+
+    <div class="pay-now" *ngIf="!isFresher">
+        <small>
+            {{receivedBill.service}} <br>
+            <strong>{{receivedBill.number}}</strong>
+        </small>
+        <small>
+            DUE DATE   <br>
+            <strong>{{receivedBill.duedate}}</strong>
+        </small>
+        <small>
+            AMOUNT DUE <br>
+            <strong>Rs. {{receivedBill.currentcharge}}</strong>
+        </small>
+        <span>
+            <button [disabled]="paymentstatus">PAY NOW</button> <br> 
+            
+        </span>
+        
+    </div>
+    <a routerLink="/summary" style="padding-left: 63rem;">View Details <i class="bi bi-arrow-right ic"></i></a>
+    <hr style="width: 93%;margin: 0 auto;margin-top: 1%;">
+
+    <div class="late-charges">
+        <p>*LATE PAYMENT CHARGES - Payment of bills on time would ensure a good
+            credit rating and uninterrupted usage of your Connect mobile services. 
+            <a href="">VIEW TERMS & CONDITIONS</a>
+        </p>
+    </div>
+   
+</div>
+

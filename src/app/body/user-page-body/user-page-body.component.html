@@ -1,0 +1,120 @@
+
+<app-user-page-header></app-user-page-header>
+<div class="main-container">
+    
+    <div class="left-container">
+        <p><i>Manage<br> your<br> services <br> at </i><br> 
+            <strong style="font-size: 25px;"><i>C</i></strong> 
+            <i class="bi bi-gear-wide-connected" style="margin-top: 0px;"></i>
+            <i style="margin-top: 1rem;font-weight: bold;" >NNECT</i></p>
+       
+    </div>
+
+    <div class="right-container">
+
+        <table  [cellPadding]="10" [cellSpacing]="5" style="margin-left: 5%;">
+            <tr>
+                <td>
+                    <div class="card overview card-style" style="width: 18rem;  height: 6rem;" >
+                        <div class="card-body">
+                            <h5 class="card-title">MY SERVICES</h5>
+                            <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+                            <p class="card-text">{{receivedData.service}} {{receivedData.number}}</p>
+                            <!-- <p class="card-text">99400988805</p> -->
+                            <!-- <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a> -->
+                        </div>
+                    </div>
+                </td>
+                <td rowspan="2">
+                    <div class="card card-style" style="width: 18rem;">
+                        <img src="../../../assets/utilization.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          
+                            <h5 class="card-text">TRACK YOUR USAGES</h5> 
+                            <!-- <a href="">Paybills</a> -->
+                            <a routerLink="/utilization">Check utilization</a>
+                          
+                        </div>
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card overview card-style" style="width: 18rem; height: 6rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">SERVICE OVERVIEW</h5>
+                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+                        <p class="card-text">{{receivedData.dataleft}} GB, Unlimited Usage</p>
+                        <!-- <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a> -->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card overview card-style" style="width: 18rem;height: 10rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">BILL</h5>
+                        <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+                        <p >next bill will be generated on <b>{{receivedData.billingdate|date:'dd MMM'}}</b></p>
+                        <small class="card-text" style="opacity: 0.8;">{{receivedData.validfrom|date:'dd MMM'}} - {{receivedData.validto|date:'dd MMM'}} cycle</small><br>
+                        <small>billed on {{receivedData.billingdate|date:'dd'}}th of every month</small>
+                        <!-- <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a> -->
+                        </div>
+                    </div>
+                </td>
+                <td rowspan="2">
+                    <div class="card card-style" style="width: 18rem;">
+                        <img src="../../../assets/family pack.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          
+                            <h5 class="card-text">FAMILY MEMBERS </h5>
+                            1 active members
+                            <!-- <a href="">Paybills</a> -->
+                            <hr>
+                            <small style="font-size: 10px;opacity: 0.6;font-weight: bolder;">PARENT(me) {{receivedData.number}}</small>
+                            <p>{{receivedData.number}}</p>
+                            
+                         
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <div class="accordion card-style" id="accordionExample" style="width: 18rem;">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <h5 style="padding: 5%;">PLAN</h5>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                              
+                           <p><b>${{receivedData.plan}} infinity family </b><br> <small><b style="color: green;">active</b> {{receivedData.daysleft}} days left</small></p> 
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <SMAll style="opacity: 0.8;font-size: 10px;font-weight: bolder;">MONTHLY DATA 
+                                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>{{dataBal}}GB</b> left of {{staticgb}}GB</SMAll>
+                                <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
+                                    <div class="progress-bar" [style.width.%]="width"></div> 
+                                    <!-- change the width size to show the progress -->
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                     </div>   
+                </td>
+            </tr>
+        </table>
+     
+
+    </div>
+
+    
+   
+</div>

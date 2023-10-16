@@ -1,0 +1,65 @@
+<app-user-page-header></app-user-page-header>
+
+<div class="main-container">
+    
+    
+    <div class="left-div">
+       <img src="../../../assets/jioairfiber-features-1.webp" alt="" width="466px" height="496px">
+    </div>
+
+
+    <div class="right-div">
+
+        <div class="title">
+            <button (click)="toggleTo('Data')" id="dataButton">Data</button>
+            <button (click)="toggleTo('Calls')" id="callsButton">Calls</button>
+            <button (click)="toggleTo('SMS')" id="smsButton">SMS</button>
+        </div>
+        <div class="data-container">
+                
+                <div class="card card-style" style="width: 40rem;"  *ngIf="toggle == 'Data'">
+                    <div class="card-body" *ngFor="let d of data">
+                        
+                                <strong>{{d.dataUsed}}</strong> <br>
+                                <small>Session end time: {{d.session}}</small> <br>
+                                <small>{{d.network}}</small>
+                                <hr>
+                        
+                    </div>
+                </div>
+
+
+            
+            
+                <div *ngIf="toggle == 'Calls'" class="card card-style" style="width: 40rem;">
+                    <div class="card-body"  *ngFor="let c of calls"> 
+                        
+                        
+                                <strong>+{{c.region}}-{{c.number}}</strong> <br>
+                                <small>{{c.time}} {{c.network}}</small> <br>
+                                <small>{{c.minutes}}</small> <br>
+                                ${{c.cost}}
+                                <hr>
+                    </div>
+                </div>
+            
+
+
+            
+                <div class="card card-style" style="width: 40rem;" *ngIf="toggle == 'SMS'">
+                    <div class="card-body" *ngFor="let d of data">
+                        
+                                <strong>{{d.dataUsed}}</strong> <br>
+                                <small>Session end time: {{d.session}}</small> <br>
+                                <small>{{d.network}}</small>
+                                <hr>
+                        
+                    </div>
+                </div>
+        </div>
+
+
+    </div>
+        
+</div>
+

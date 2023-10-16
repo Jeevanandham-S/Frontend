@@ -1,0 +1,61 @@
+.Home-header{
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    padding: 20px 12.5%;
+    background: rgb(41,47,69);
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    z-index: 100;
+}
+
+.Home-navbar{
+    display: flex;
+    flex-direction: row;
+   /* padding-left: 80%; */
+   margin-left: 50rem;
+}
+
+.Home-navbar button{
+    border: none;
+    outline: none;
+    background:transparent;
+}
+
+.notifi button{
+   border: none;
+   outline: none;
+   background-color: transparent;
+   /* margin-left: 10rem; */
+}
+
+
+/* Define the keyframes for the vibrate animation */
+@keyframes vibrate {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-5px);
+    }
+    40% {
+      transform: translateX(5px);
+    }
+    60% {
+      transform: translateX(-5px);
+    }
+    80% {
+      transform: translateX(5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Apply the vibrate animation to an element */
+  .notifi:hover {
+    animation: vibrate 0.6s ease infinite;
+  }
+  

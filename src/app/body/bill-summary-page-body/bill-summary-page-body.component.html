@@ -1,0 +1,105 @@
+<app-payment-page-header></app-payment-page-header>
+<div class="summary-main-container">
+
+    <!-- style="max-width: 100%;" -->
+
+<div class="card mb-3 bill" >
+    <div *ngIf="isFresher" style="text-align: center;padding: 10%;">
+
+        <h1>No bill summary available !!</h1>
+
+    </div>
+  <div class="row g-0" *ngIf="!isFresher">
+    <div class="col-md-4" style="padding: 3%;">
+      <!-- <img src="" class="img-fluid rounded-start" alt="..."> -->
+      <p class="card-title" style="font-size: 30px;margin-bottom: 14px;">Bill Summary</p> 
+      <p class="card-text" style="font-size: 30px;">{{receivedBill.fromdate|date:'dd/MMM'}} - {{receivedBill.todate|date:'dd/MMM/yy'}}</p>
+      <p class="card-text" style="opacity: 0.8;font-size: 15px;"><small>Due date on {{receivedBill.duedate}}</small></p>
+    </div>
+    <div class="col-md-8 " >
+      <div class="card-body pay">
+        <!-- <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+        <table [cellPadding]="5" >
+            <tr>
+                <td style="padding-right: 15rem;">Previous Balance</td>
+                <td>Rs. {{receivedBill.previousbal|number:'1.2-2'}} <small>(including tax)</small></td>
+            </tr>
+            <!-- <tr>
+                <td>Payments Received</td>
+                <td>Rs. {{receivedBill.paymentreceived|number:'1.2-2'}}</td>
+            </tr> -->
+            <!-- <tr>
+                <td>Adjustments</td>
+                <td>Rs. 0.00</td>
+            </tr> -->
+            <tr>
+                <td>Current Charges</td>
+                <td>Rs. {{receivedBill.currentcharge|number:'1.2-2'}}</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>Rs. {{receivedBill.tax|number:'1.2-2'}}</td>
+            </tr>
+            <tr>
+                <td colspan="2"> <hr> </td>
+            </tr>
+            <tr>
+                <td>Total Amount Due</td>
+                <td>Rs. {{receivedBill.totalamount|number:'1.2-2'}}</td>
+            </tr>
+            <tr>
+                <td><small>(After Due Date)</small></td>
+                <td><small>(Rs. 588.82)</small></td>
+            </tr>
+            <tr>
+                <td><small>Unbilled Amount</small></td>
+                <td><small>Rs. 0.00</small></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button>Download Bill</button> &nbsp;
+                    <button [disabled]="paymentstatus" (click)="onClickPay()">Pay Now</button>
+                </td>
+            </tr>
+
+        
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="billing-history">
+    <h1>Billing History</h1>
+
+     <p>Last Payments</p>
+
+     <div class="payment-details">
+        <table style="max-width: 100%;" border="1px">
+            <tr>
+                <td>1</td>
+            </tr>
+        </table>
+     </div>
+
+     <p>Last Bills and Statements</p>
+  </div>
+
+</div>
+
+
+
+    <!-- <div class="bill-summary">
+        <div class="summary-card">
+            <p>Bill Su</p>
+        </div>
+    </div>
+    <div class="pay">
+        pay
+    </div> -->
+</div>

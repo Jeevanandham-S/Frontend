@@ -1,0 +1,47 @@
+<app-home-page-header></app-home-page-header>
+<div class="main-container">
+    <div class="image-div">
+       
+    </div>
+
+    <div class="body-div">
+        <div class="login-form" *ngIf="enableLogin == false">
+            <label for="">Mobile Number</label>
+            <small class="text-danger error" *ngIf="mobileNumber.errors?.['pattern']">Please enter a valid phone number</small>
+            <input type="text" [formControl]="mobileNumber" maxlength="10">
+            
+            <button class="button-sty" (click)="sendOTP(true)" [disabled]="mobileNumber.invalid"  [style.backgroundColor]="mobileNumber.valid ? 'green' : ''" [style.borderColor]="mobileNumber.valid ? 'white' : ''"  >send OTP</button>
+        </div>
+
+        <div class="login-form" *ngIf="enableLogin == true">
+            <label for="">Mobile Number</label>
+            <div class="edit">
+                <input type="text" value={{mobileNumber.value}}  readonly style="opacity: 0.3;margin-bottom: 2%;">
+                <a (click)="sendOTP(false)"><i class="fa-solid fa-pen"></i></a>
+            </div>
+
+            <label *ngIf="!st.startsWith('Not') && !st.startsWith('So')" >OTP</label>
+            <small *ngIf="st.startsWith('OTP') " style="color: blue;">{{st}}</small>
+            <small *ngIf="st.startsWith('Not') || st.startsWith('So')" style="color: red;">{{st}}</small>
+            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="configOptions" class="otp-div" *ngIf="!st.startsWith('Not') && !st.startsWith('So')"></ng-otp-input>
+            <button class=" login-button" [ngClass]="btnStatus" (click)="onClickLogin()" *ngIf="!st.startsWith('Not')  && !st.startsWith('So')">{{ this.inputDigitLeft }}</button>
+            <!-- btn btn-lg w-100 mt-3 mb-4 py-3 -->
+            <!-- <input type="text" >
+            <button (click)="onClickLogin()">Login</button> -->
+            
+        </div>   
+        <div class="quotes">
+            <marquee behavior="" direction="right">
+               
+                <strong>LET'S ACCELERATE THE CONNECTEDNESS</strong>
+                <img src="../../../assets/bike2.gif" alt="" width="50px" height="50px">
+             
+                
+                 
+                </marquee>
+           
+            
+        </div>
+    </div>
+</div>
+

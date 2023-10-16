@@ -1,0 +1,98 @@
+<header class="Home-header">
+    <div class="logo" style="color: white;display: inline-flex;letter-spacing: 3px;">
+        <!-- <img src="" alt="img"> -->
+        <strong style="font-size: 2rem;"><i>C</i></strong> <i class="bi bi-gear-wide-connected" style="margin-top: 5px;"></i><i style="margin-top: 5px;font-weight: bold;" >NNECT</i>
+    </div>
+    <nav class="Home-navbar">
+        <!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 10%;">
+                Postpaid
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div> -->
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 5%;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/payment">
+                <i class="bi bi-currency-rupee"></i> Payments & Recharges
+            </a></li>
+              <li><a class="dropdown-item" routerLink="/payment">
+                <img src="../../../assets/pay.png" alt="" width="17px" height="17px"> Transactions</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/register">
+                <i class="bi bi-currency-rupee"></i> Recharge
+               
+              </a></li>
+              <li><a class="dropdown-item" routerLink="/call"><i class="bi bi-person"></i> Call</a></li>
+              <li><a class="dropdown-item" routerLink="/sms"><i class="bi bi-person"></i> SMS</a></li>
+              <li><a class="dropdown-item"routerLink="/data"><i class="bi bi-person"></i> Data</a></li>
+              <li><a class="dropdown-item" routerLink="/register"><i class="bi bi-info-circle"></i> Help</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" (click)="onClickLogout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul>
+          </div>
+
+       
+    </nav>
+
+    <div class="notifi">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="50" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 22">
+          <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+        </svg>
+      </button>
+      
+    </div>
+</header>
+
+
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Notifications</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let notification of notifications; let i = index">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#not' + i" [attr.aria-expanded]="i === 0" [attr.aria-controls]="'collapse' + i">
+                  Notification{{ i + 1 }}
+                </button>
+              </h2>
+              <div [id]="'not' + i" class="accordion-collapse collapse" [class.show]="i === 0" [attr.data-bs-parent]="'#accordionExample'">
+                <div class="accordion-body">
+                  <!-- Dynamic content for each accordion item -->
+                  <strong>This is the {{ notification }} item's accordion body.</strong> It is shown by default for the first item, until the collapse plugin adds the appropriate classes that we use to style each element.
+                  <!-- Add your dynamic content here -->
+                </div>
+              </div>
+            </div>
+        
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+

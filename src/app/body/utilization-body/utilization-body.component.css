@@ -1,0 +1,96 @@
+
+.data-container{
+
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+    height: 25rem;
+    
+}
+
+
+
+.title{
+    width: 18rem;
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.title button{
+    /* border: none;
+    outline: none;
+    background-color: transparent; */
+
+
+
+    background-color: #007BFF; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none; /* Remove button border */
+            border-radius: 4px; /* Add rounded corners */
+            padding: 10px 20px; /* Add padding to the button */
+            margin-right: 10px; /* Add margin between buttons */
+            cursor: pointer; /* Add a pointer cursor on hover */
+            transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
+}
+
+
+.title button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Additional styles for the active button */
+.title .active-button {
+    background-color: #28a745; /* Change background color of active button */
+}
+
+.card-style{
+    /* box-shadow: 2px 2px 4px black; */
+    /* z-index: -1; */
+    /* transform: scale(1.2); */
+    border-radius: 10px;
+    /* background-color: transparent; */
+    /* overflow: scroll; */
+    overflow-y: scroll; /* Enable vertical scrollbar */
+    /* overflow-x: hidden; */
+
+    background-color: #ffffff; /* Set the background color */
+    border: 1px solid #ccc; /* Add a border for visualization */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    
+    
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height: 31rem;
+    /* position: fixed; */
+    
+    
+}
+
+.left-div{
+    flex:40%;
+    /* background-image: url("https://jep-asset.akamaized.net/cms/assets/airfiber/jioairfiber-features-1.webp"); */
+    /* width: 35rem; */
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    /* height: 31rem; */
+    background-color: rgb(234,239,249);
+    /* border: 1px solid black; */
+}
+
+.right-div{
+    flex: 60%;
+    /* width: 80rem; */
+    background-color: rgb(234,239,249);
+    /* border: 1px solid black; */
+    
+}

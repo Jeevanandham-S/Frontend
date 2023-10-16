@@ -1,0 +1,40 @@
+.Home-header{
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    padding: 20px 12.5%;
+    background: rgb(41,47,69);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* z-index: 100; */
+}
+
+.Home-navbar{
+    display: flex;
+    flex-direction: row;
+   padding-left: 80%;
+}
+
+.Home-navbar button{
+    border: none;
+    outline: none;
+    background:transparent;
+}
+
+/* Define the keyframes for the fall down animation */
+/* @keyframes fall-down {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } */
+  
+  /* Apply the fall-down animation to an element */
+  /* .logo:hover {
+    animation: fall-down 8s ease-in-out;
+  } */
+  

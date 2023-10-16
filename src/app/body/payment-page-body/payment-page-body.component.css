@@ -1,0 +1,45 @@
+.payment-main-body{
+    background-color: rgb(234,239,249);
+    height: 34.39rem;
+    /* margin-top: 8rem; */
+}
+
+.pay-now{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .pay-now span button {
+    height: 2%;
+    width: 15%;
+    border: none;
+} */
+
+
+.ic:hover{
+    transform: scale(1.2);
+}
+  
+
+.payment-main-body h2{
+    padding: 0 4%;
+    padding-top: 8%;
+    font-size: 2rem;
+    
+}
+
+
+.late-charges{
+    margin: 3% 0;
+    margin-left: 55%;
+    margin-right: 3%;
+}
+
+.late-charges p{
+    text-align: justify;
+}
+
+.pay-now span a{
+    text-decoration: none;
+}

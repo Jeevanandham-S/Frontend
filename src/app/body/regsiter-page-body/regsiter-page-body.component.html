@@ -1,0 +1,114 @@
+<app-home-page-header></app-home-page-header>
+
+
+<div class="main-container">
+  <div class="image-div">
+     
+  </div>
+
+  <div class="body-div">
+      <div class="login-form" *ngIf="enableLogin == false">
+          <label for="">ACCOUNT NUMBER</label>
+         
+          <small class="text-danger error" *ngIf="mobileNumber.errors?.['pattern']">Please enter a valid phone number</small>
+          <input type="text" [formControl]="mobileNumber" maxlength="12">
+          
+          <button class="button-sty" (click)="sendOTP(true)" [disabled]="mobileNumber.invalid  "  [style.backgroundColor]="mobileNumber.valid ? 'green' : ''" [style.borderColor]="mobileNumber.valid ? 'white' : ''"  >send OTP</button>
+      </div>
+
+      <div class="login-form" *ngIf="enableLogin == true">
+          <label for="">ACCOUNT NUMBER</label>
+          <div class="edit">
+              <input type="text" value={{mobileNumber.value}}  readonly style="opacity: 0.3;margin-bottom: 2%;">
+              <a (click)="sendOTP(false)"><i class="fa-solid fa-pen"></i></a>
+          </div>
+          <label *ngIf="st.startsWith('OTP') " style="color: blue;">{{st}}</label>
+          <small *ngIf="st.startsWith('Enter') || st.startsWith('A')" style="color: red;">{{st}}</small>
+          <label *ngIf="!st.startsWith('Enter') && !st.startsWith('A')">OTP</label>
+          
+          <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="configOptions" class="otp-div" *ngIf="!st.startsWith('Enter') && !st.startsWith('A')"></ng-otp-input>
+          <button class=" login-button" [ngClass]="btnStatus" (click)="onClickLogin()" *ngIf="!st.startsWith('Enter') && !st.startsWith('A')">{{ this.inputDigitLeft }}</button>
+          <!-- btn btn-lg w-100 mt-3 mb-4 py-3 -->
+          <!-- <input type="text" >
+          <button (click)="onClickLogin()">Login</button> -->
+          
+      </div>   
+      <div class="quotes">
+          <marquee behavior="" direction="right">
+             
+              <strong>LET'S ACCELERATE THE CONNECTEDNESS</strong>
+              <img src="../../../assets/bike2.gif" alt="" width="50px" height="50px">
+           
+              
+               
+              </marquee>
+         
+          
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="reg-div-main">
+  
+    <form action="/login">
+    
+      <div class="row-div">
+    
+        <div class="col-div" style="margin-right: 25%;">
+          <label>First Name</label>
+          <input type="text" style="border-bottom: 3;">
+        </div>
+    
+        <div class="col-div">
+          <label for="">Last Name</label>
+          <input type="text">
+        </div>
+    
+      </div>
+    
+    
+      <label for="">Date of Birth</label>
+      <input type="date">  
+      <label for="">Email</label>
+      <input type="email">
+      <label for="">Mobile number</label>
+      <input type="text">
+      <label for="">Address</label>
+      <input type="text">
+    
+      <div class="row-div">
+    
+        <div class="col-div" style="margin-right: 25%;">
+          <label for="">State</label>
+          <input type="text">
+        </div>
+    
+        <div class="col-div">
+          <label for="">City</label>
+          <input type="text" name="" id="">
+        </div>
+      </div>
+    
+      <label for="">Zip</label>
+      <input type="text">
+      
+      <div class="row-div" style="margin-top: 2%;">
+        <input class="reg-button" type="submit" (click)="onClickRegister()" value="Register me" style="margin-left: 20%;">
+        <input class="reg-button" type="reset" style="margin-left:10% ;" value="Clear">
+      </div>
+     
+    </form>
+    
+    </div> -->
+    
+    
+    
+    
+    
+    
+
+
