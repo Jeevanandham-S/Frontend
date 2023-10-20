@@ -45,7 +45,7 @@
                         <div class="card-body">
                         <h5 class="card-title">SERVICE OVERVIEW</h5>
                         <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                        <p class="card-text">{{receivedData.dataleft}} GB, Unlimited Usage</p>
+                        <p class="card-text">{{receivedData.dataleft|number:'.2'}} GB, Unlimited Usage</p>
                         <!-- <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a> -->
                         </div>
@@ -60,7 +60,7 @@
                         <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
                         <p >next bill will be generated on <b>{{receivedData.billingdate|date:'dd MMM'}}</b></p>
                         <small class="card-text" style="opacity: 0.8;">{{receivedData.validfrom|date:'dd MMM'}} - {{receivedData.validto|date:'dd MMM'}} cycle</small><br>
-                        <small>billed on {{receivedData.billingdate|date:'dd'}}th of every month</small>
+                        <small>billed on every 30 days</small>
                         <!-- <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a> -->
                         </div>
@@ -92,16 +92,24 @@
                             <h5 style="padding: 5%;">PLAN</h5>
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                               
-                           <p><b>${{receivedData.plan}} infinity family </b><br> <small><b style="color: green;">active</b> {{receivedData.daysleft}} days left</small></p> 
+                           <p><b><i class="bi bi-currency-rupee"></i>{{receivedData.plan}} infinity family </b><br> <small><b style="color: green;">active</b> {{receivedData.daysleft}} days left</small></p> 
                             </button>
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <SMAll style="opacity: 0.8;font-size: 10px;font-weight: bolder;">MONTHLY DATA 
                                     &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <b>{{dataBal}}GB</b> left of {{staticgb}}GB</SMAll>
+                                    <b>{{receivedData.dataleft|number:'.1'}}GB</b> left of {{receivedData.data}}GB</SMAll>
                                 <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
-                                    <div class="progress-bar" [style.width.%]="width"></div> 
+                                    <div class="progress-bar" [style.width.%]="100 - receivedData.dataused"></div> 
+                                    <!-- change the width size to show the progress -->
+                                </div>
+
+                                <SMAll style="opacity: 0.8;font-size: 10px;font-weight: bolder;">SMS AVAILABLE
+                                    &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>{{smsavailable.smsavailable}}</b> left of 100</SMAll>
+                                <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 3px">
+                                    <div class="progress-bar" [style.width.%]="smsavailable.smsavailable"></div> 
                                     <!-- change the width size to show the progress -->
                                 </div>
                             </div>

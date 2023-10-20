@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
+import { SmsCycle } from 'src/app/Model/Smscycle';
 import { UserService } from 'src/app/Model/UserService';
 import { UserServiceService } from 'src/app/UserService/user-service.service';
+import { UtilizationService } from 'src/app/Utilization service/utilization.service';
 
 @Component({
   selector: 'app-user-page-body',
@@ -51,7 +53,10 @@ gb:any;
 staticgb:any
 width:any;
 validTo:any;
-constructor(private uservice:UserServiceService){
+smsavailable:any;
+constructor(private uservice:UserServiceService, private utilservice:UtilizationService){
+
+
   // this.userMobileNumber = uservice.getUserMobileNumber();
   // this.uservice.getUserService(this.userMobileNumber).subscribe((service:UserService)=>{this.userservice = service});
  console.log('from constructor');
@@ -62,6 +67,10 @@ constructor(private uservice:UserServiceService){
  if(storedData){
    this.receivedData = JSON.parse(storedData);
  }
+
+//  timer(3000).subscribe(()=>{
+//   this.uservice.getUserService(this.receivedData.number);
+//  })
 
  const generateBill = sessionStorage.getItem('generateBill');
  if(this.receivedData.daysleft<=1){
@@ -85,11 +94,17 @@ constructor(private uservice:UserServiceService){
           // uservice.setHasbillgenerated();
 
   }
-  
 
-  
     
  }
+ 
+
+ 
+  const storedSms = localStorage.getItem("smsAvailable");
+  if(storedSms){
+    this.smsavailable = JSON.parse(storedSms);
+  }
+
 }
 
 

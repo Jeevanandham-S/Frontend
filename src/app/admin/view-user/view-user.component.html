@@ -1,1 +1,36 @@
-<p>view-user works!</p>
+<app-admin-header></app-admin-header>
+<div class="main-container">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">D.O.B</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Account Number</th>
+            <th scope="col">Plan</th>
+            <th scope="col">Service</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.fname}}</td>
+            <td>{{user.lname}}</td>
+            <td>{{user.dob}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.number}}</td>
+            <td>{{user.accountnumber}}</td>
+            <td><i class="bi bi-currency-rupee"></i>{{user.plan}}</td>
+            <td>{{user.service}}</td>
+            <td>{{user.city}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+</div>

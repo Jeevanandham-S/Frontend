@@ -1,1 +1,33 @@
-<p>sms works!</p>
+<app-utilization-header></app-utilization-header>
+<div class="main">
+<table [cellPadding]="15">
+    <tr>
+        <td>From</td>
+        <td><input type="text" [(ngModel)]="sms.mobilenumber" disabled></td>
+    </tr>
+    <tr>
+        <td>To</td>
+        <td><input type="text" [(ngModel)]="sms.receiver" maxlength="10"></td>
+    </tr>
+    <tr>
+        <td>Message body</td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td><input type="text" value="{{sms.date|date:'dd-MM-yyy'}}" disabled></td>
+    </tr>
+    <tr>
+        <td>Time</td>
+        <td><input type="text" [(ngModel)]="sms.time" disabled></td>
+    </tr>
+    <tr>
+        <td><button (click)="onClickSubmit()"><i class="bi bi-chat-dots"></i></button></td>
+    </tr>
+    <tr>
+        <td>
+            <a routerLink="/user">Back to home page</a> 
+        </td>
+    </tr>
+</table>
+</div>

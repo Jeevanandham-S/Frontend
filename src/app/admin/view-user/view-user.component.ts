@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminServiceService } from '../Admin Service/admin-service.service';
 
 @Component({
   selector: 'app-view-user',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./view-user.component.css']
 })
 export class ViewUserComponent {
+
+  users:any[] = [];
+  constructor(private adminservice:AdminServiceService){
+
+    adminservice.getUsers().subscribe((user:any[])=>{this.users = user})
+    console.log(this.users);
+    
+
+  }
 
 }

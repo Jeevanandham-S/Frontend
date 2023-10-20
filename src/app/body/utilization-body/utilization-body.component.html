@@ -18,11 +18,12 @@
         <div class="data-container">
                 
                 <div class="card card-style" style="width: 40rem;"  *ngIf="toggle == 'Data'">
-                    <div class="card-body" *ngFor="let d of data">
+                    <div class="card-body" *ngFor="let d of dataList">
                         
-                                <strong>{{d.dataUsed}}</strong> <br>
+                                <strong style="position: absolute;right: 0;">{{d.date|date:'ddMMM'}}</strong>
+                                <strong>{{d.dataused}} {{d.quantity}}</strong> <br>
                                 <small>Session end time: {{d.session}}</small> <br>
-                                <small>{{d.network}}</small>
+                                <!-- <small>{{d.network}}</small> -->
                                 <hr>
                         
                     </div>
@@ -32,13 +33,13 @@
             
             
                 <div *ngIf="toggle == 'Calls'" class="card card-style" style="width: 40rem;">
-                    <div class="card-body"  *ngFor="let c of calls"> 
+                    <div class="card-body"  *ngFor="let c of callList"> 
                         
-                        
-                                <strong>+{{c.region}}-{{c.number}}</strong> <br>
-                                <small>{{c.time}} {{c.network}}</small> <br>
-                                <small>{{c.minutes}}</small> <br>
-                                ${{c.cost}}
+                                <strong style="position: absolute;right: 0;">{{c.date|date:'ddMMM'}}</strong>
+                                <strong>+91-{{c.dialnumber}}</strong> <br>
+                                <small>{{c.time}} </small> <br>
+                                <small>{{c.duration}}</small> <br>
+                                <!-- ${{c.cost}} -->
                                 <hr>
                     </div>
                 </div>
@@ -47,11 +48,12 @@
 
             
                 <div class="card card-style" style="width: 40rem;" *ngIf="toggle == 'SMS'">
-                    <div class="card-body" *ngFor="let d of data">
+                    <div class="card-body" *ngFor="let s of smsList">
                         
-                                <strong>{{d.dataUsed}}</strong> <br>
-                                <small>Session end time: {{d.session}}</small> <br>
-                                <small>{{d.network}}</small>
+                        <strong style="position: absolute;right: 0;">{{s.date|date:'ddMMM'}}</strong>
+                                <strong>+91-{{s.receiver}}</strong> <br>
+                                <small>{{s.time}}</small> <br>
+                                <!-- <small>{{d.network}}</small> -->
                                 <hr>
                         
                     </div>

@@ -2,8 +2,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
+import { SmsCycle } from 'src/app/Model/Smscycle';
 import { Status } from 'src/app/Model/Status';
 import { UserServiceService } from 'src/app/UserService/user-service.service';
+import { UtilizationService } from 'src/app/Utilization service/utilization.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +18,7 @@ export class LoginPageBodyComponent {
 
   mobileNumber:FormControl;
 
-  constructor(private route:Router,private uservice:UserServiceService){
+  constructor(private route:Router,private uservice:UserServiceService,private utilservice:UtilizationService){
     this.mobileNumber = new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10), Validators.pattern("^[6-9][0-9]*$")]);
   }
  st:any;
@@ -27,6 +29,7 @@ sendOTP(bool:boolean){
 
 @Output() changeDirectTo = new EventEmitter<string>();
 
+loading:boolean = false;
 LoginStatus:any;
 onClickLogin(){
 // this.changeDirectTo.emit('logged');
@@ -34,16 +37,27 @@ onClickLogin(){
   // this.service.setLocateTo('userPage');
   sessionStorage.setItem('generateBill','true');
   this.uservice.validateLoginOtp(this.otp).subscribe((msg:Status)=>{this.LoginStatus = msg.status});
+  this.loading = true;
+  timer(10000).subscribe(()=>{
+    this.loading = false;
+  })
   timer(5000).subscribe(()=>{
+    
     if(this.LoginStatus == 'true'){
       // this.uservice.setUserMobileNumber(this.mobileNumber.value);
       this.uservice.getBill(this.mobileNumber.value);
       this.uservice.getUserService(this.mobileNumber.value);
+      sessionStorage.setItem('sendNotification','true');
+      this.utilservice.getSmsAvailable(this.mobileNumber.value).subscribe((details:SmsCycle)=>{
+        localStorage.setItem("smsAvailable",JSON.stringify(details));
+       })
       
     }
     else{
       Swal.fire("Invalid OTP","","error");
     }
+
+    
   })
   
 }

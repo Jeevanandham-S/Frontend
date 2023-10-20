@@ -1,0 +1,23 @@
+<app-admin-header></app-admin-header>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Message</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feed of feedbacks; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{feed.name}}</td>
+        <td>{{feed.email}}</td>
+        <td>{{feed.mobilenumber}}</td>
+        <td>{{feed.message}}</td>
+        <td><button>Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

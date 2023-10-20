@@ -1,23 +1,41 @@
-<p>call works!</p>
+<app-utilization-header></app-utilization-header>
+<div class="main-container">
+    <div class="main">
+    <table  [cellPadding]="15">
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="text"  disabled [(ngModel)]="CallLogs.mobilenumber" ></td>
+        </tr>
+        <tr>
+            <td>Dial Number</td>
+            <td><input type="text" name="num"  [(ngModel)]="CallLogs.dialnumber" maxlength="10"></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input type="text"  value="{{CallLogs.date|date:'dd-MM-yyyy'}}"  disabled></td>
+        </tr>
+        <tr>
+            <td>Time</td>
+            <td><input type="text" value="{{CallLogs.time}}" disabled ></td>
+        </tr>
+        <tr>
+            <td>Duration</td>
+            <td ><input type="text" name="" placeholder="minutes" [(ngModel)]="min"></td>
+            <td><input type="text" placeholder="seconds" [(ngModel)]="sec"></td>
+        </tr>
+        <tr>
+            <td><button (click)="onClickSubmit()" ><i class="bi bi-telephone-fill"></i></button></td>
+        </tr>
 
-<form action="">
-   <table>
-    <tr>
-        <td>Mobile Number</td>
-        <td><input type="text" value={{receivedData.number}} disabled></td>
-    </tr>
-    <tr>
-        <td>Dial Number</td>
-        <td><input type="text" name="" id=""></td>
-    </tr>
-    <tr>
-        <td>Date</td>
-        <td><input type="date"></td>
-    </tr>
-    <tr>
-        <td>Duration</td>
-        <td><input type="time" name="" id=""></td>
-    </tr>
+        <tr>
+            <td>
+                <a routerLink="/user">Back to home page</a>
+            </td>
+        </tr>
 
-   </table>
-</form>
+    </table>
+    </div>
+</div>
+   
+   <!-- {{CallLogs|json}} -->
+

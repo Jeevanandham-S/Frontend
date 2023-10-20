@@ -4,6 +4,8 @@ import { Status } from '../Model/Status';
 import { Observable, timer } from 'rxjs';
 import { UserService } from '../Model/UserService';
 import { Router } from '@angular/router';
+import { BillHistory } from '../Model/BillHistory';
+import { Feedback } from '../Model/Feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -113,6 +115,22 @@ export class UserServiceService {
     console.log(number);
     return this.httpclient.put('http://localhost:7000/service/payBill',number);
     
+
+  }
+
+  billHistory(history:any){
+    return this.httpclient.post('http://localhost:7000/service/billhistory',history);
+  }
+
+  getBillHistory(mobilenumber:number){
+    return this.httpclient.get<BillHistory[]>(`http://localhost:7000/service/billhistory/${mobilenumber}`);
+  }
+
+
+
+  addFeedback(msg:Feedback){
+
+    return this.httpclient.post<Status>('http://localhost:7000/feedback',msg)
 
   }
 

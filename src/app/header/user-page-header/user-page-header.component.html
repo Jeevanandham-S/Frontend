@@ -23,22 +23,24 @@
               </svg>
             </button>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/user">
+                <!-- <i class="bi bi-currency-rupee"></i> Recharge -->
+                <i class="bi bi-house-door"></i> Home
+               
+              </a></li>
               <li><a class="dropdown-item" routerLink="/payment">
                 <i class="bi bi-currency-rupee"></i> Payments & Recharges
             </a></li>
               <li><a class="dropdown-item" routerLink="/payment">
                 <img src="../../../assets/pay.png" alt="" width="17px" height="17px"> Transactions</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
-              <li><a class="dropdown-item" routerLink="/register">
-                <i class="bi bi-currency-rupee"></i> Recharge
-               
-              </a></li>
-              <li><a class="dropdown-item" routerLink="/call"><i class="bi bi-person"></i> Call</a></li>
-              <li><a class="dropdown-item" routerLink="/sms"><i class="bi bi-person"></i> SMS</a></li>
-              <li><a class="dropdown-item"routerLink="/data"><i class="bi bi-person"></i> Data</a></li>
-              <li><a class="dropdown-item" routerLink="/register"><i class="bi bi-info-circle"></i> Help</a></li>
+              <li><a class="btn btn-primary dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-person"></i> Profile</a></li>
+            
+              <li><a class="dropdown-item" routerLink="/call"><i class="bi bi-telephone"></i> Call</a></li>
+              <li><a class="dropdown-item" routerLink="/sms"><i class="bi bi-chat-dots"></i> SMS</a></li>
+              <li><a class="dropdown-item"routerLink="/data"><i class="bi bi-bar-chart-line"></i> Data</a></li>
+              <!-- <li><a class="dropdown-item" routerLink="/register"><i class="bi bi-info-circle"></i> Help</a></li> -->
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-danger" (click)="onClickLogout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+              <li><a class="dropdown-item text-danger" (click)="onClickLogout()" style="cursor: pointer;"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
             </ul>
           </div>
 
@@ -74,13 +76,16 @@
             <div class="accordion-item" *ngFor="let notification of notifications; let i = index">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" [attr.data-bs-toggle]="'collapse'" [attr.data-bs-target]="'#not' + i" [attr.aria-expanded]="i === 0" [attr.aria-controls]="'collapse' + i">
-                  Notification{{ i + 1 }}
+                  {{notification.header}} 
+                  <!-- {{ i + 1 }} -->
                 </button>
               </h2>
               <div [id]="'not' + i" class="accordion-collapse collapse" [class.show]="i === 0" [attr.data-bs-parent]="'#accordionExample'">
-                <div class="accordion-body">
+                <div class="accordion-body" style="display: flex;justify-content: space-evenly;">
                   <!-- Dynamic content for each accordion item -->
-                  <strong>This is the {{ notification }} item's accordion body.</strong> It is shown by default for the first item, until the collapse plugin adds the appropriate classes that we use to style each element.
+                  <strong> {{ notification.body }} </strong> 
+                  <strong>{{notification.date|date:'ddMMM'}}</strong> <br>
+                  <button (click)="onClickDelete(notification)">Delete</button>
                   <!-- Add your dynamic content here -->
                 </div>
               </div>
@@ -88,11 +93,56 @@
         
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+      <div class="modal-footer" style="display: inline-flex;letter-spacing: 1px;">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button> -->
+        <strong style="font-size: 2rem;"><i>C</i></strong> <i class="bi bi-gear-wide-connected" style="margin-top: 8px;"></i><i style="margin-top: 8px;font-weight: bold;margin-left: 0;" >NNECT</i>
       </div>
     </div>
   </div>
 </div>
 
+
+
+<!-- profile page -->
+
+
+<!-- <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Link with href
+</a>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Button with data-bs-target
+</button> -->
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <!-- <img src="" class="img-fluid" alt="..."> -->
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="profile">
+     
+      <p style="font-size: 20px; font-weight: 600;">{{receivedData.fname}}  {{receivedData.lname}}</p>
+      <p><i class="bi bi-envelope"></i> {{receivedData.email}}</p>
+      <p><i class="bi bi-telephone-fill"></i> +91-{{receivedData.number}}</p>
+      <p><i class="bi bi-calendar3"></i> {{receivedData.dob}}</p>
+      <p><i class="bi bi-geo-alt-fill"></i> {{receivedData.address}} {{receivedData.city}} {{receivedData.state}} {{receivedData.zip}}</p>
+      <p> </p>
+    </div>
+    <!-- <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div> -->
+    <div class="logo profile-l" style="color: black;display: inline-flex;letter-spacing: 3px;">
+      <!-- <img src="" alt="img"> -->
+      <strong style="font-size: 2rem;"><i>C</i></strong> <i class="bi bi-gear-wide-connected" style="margin-top: 5px;"></i><i style="margin-top: 5px;font-weight: bold;" >NNECT</i>
+  </div>
+  </div>
+</div>

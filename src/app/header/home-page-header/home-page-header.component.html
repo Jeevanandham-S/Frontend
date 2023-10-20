@@ -10,9 +10,9 @@
                 Postpaid
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Pay Bill</a></li>
-              <li><a class="dropdown-item" href="#">View Plans</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" (click)="onClickPayBill()" style="cursor: pointer;">Pay Bill</a></li>
+              <li><a class="dropdown-item" routerLink="/viewplans">View Plans</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
             </ul>
           </div>
 
@@ -23,7 +23,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" routerLink="/login">Login</a></li>
               <li><a class="dropdown-item" routerLink="/register">Register</a></li>
-              <li><a class="dropdown-item" href="#">Contact us</a></li>
+              <li><a class="dropdown-item" routerLink="/contactus">Contact us</a></li>
               <li><a class="dropdown-item" routerLink="/admin">Admin</a></li>
             </ul>
           </div>

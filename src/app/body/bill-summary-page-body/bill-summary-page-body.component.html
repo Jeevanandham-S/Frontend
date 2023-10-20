@@ -10,7 +10,7 @@
 
     </div>
   <div class="row g-0" *ngIf="!isFresher">
-    <div class="col-md-4" style="padding: 3%;">
+    <div class="col-md-4" style="padding: 3%;"> 
       <!-- <img src="" class="img-fluid rounded-start" alt="..."> -->
       <p class="card-title" style="font-size: 30px;margin-bottom: 14px;">Bill Summary</p> 
       <p class="card-text" style="font-size: 30px;">{{receivedBill.fromdate|date:'dd/MMM'}} - {{receivedBill.todate|date:'dd/MMM/yy'}}</p>
@@ -49,45 +49,91 @@
                 <td>Total Amount Due</td>
                 <td>Rs. {{receivedBill.totalamount|number:'1.2-2'}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td><small>(After Due Date)</small></td>
                 <td><small>(Rs. 588.82)</small></td>
             </tr>
             <tr>
                 <td><small>Unbilled Amount</small></td>
                 <td><small>Rs. 0.00</small></td>
-            </tr>
+            </tr> -->
             <tr>
                 <td colspan="2" align="center">
-                    <button>Download Bill</button> &nbsp;
-                    <button [disabled]="paymentstatus" (click)="onClickPay()">Pay Now</button>
+                    <!-- <button>Download Bill</button> &nbsp; -->
+                   
+                    
+                    <!-- <button [disabled]="paymentstatus" (click)="onClickPay()">Pay Now</button> -->
                 </td>
+                
             </tr>
 
-        
+            
         </table>
-
-
+      
+       
       </div>
     </div>
   </div>
+  <div #paymentRef style="width: 20px;margin-left: 55rem;">
 
-
+  </div>
+ 
 
   <div class="billing-history">
     <h1>Billing History</h1>
 
-     <p>Last Payments</p>
+     <a (click)="onClickPaydetails()">Last Payments  <i class="bi bi-plus-circle-dotted"></i></a>
 
-     <div class="payment-details">
-        <table style="max-width: 100%;" border="1px">
-            <tr>
-                <td>1</td>
-            </tr>
-        </table>
+     <div class="payment-details" *ngIf="paydetailsbool">
+       
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SI.NO</th>
+                <th scope="col">DATE</th>
+                <th scope="col">AMOUNT</th>
+                <th scope="col">MODE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let history of billhistory;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{history.date|date:'dd/MMM/yy'}}</td>
+                <td><i class="bi bi-currency-rupee"></i>{{history.amount|number:'.2'}}</td>
+                <td>Cheque/Cash</td>
+              </tr>
+            </tbody>
+          </table>
      </div>
 
-     <p>Last Bills and Statements</p>
+     <hr>
+     <a (click)="onClickBillStatement()">Last Bills and Statements  <i class="bi bi-plus-circle-dotted"></i></a>
+
+     <div class="bill-statements" *ngIf="billstatementbool">
+       
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">SI.NO</th>
+                <th scope="col">BILL NUMBER</th>
+                <th scope="col">DATE</th>
+                <th scope="col">PREVIOUS BALANCE</th>
+                <th scope="col">AMOUNT BY DUE DATE</th>
+                <th scope="col">CYCLE CHARGES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let history of billhistory;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{history.billnumber}}</td>
+                <td>{{history.date|date:'dd/MMM/yy'}}</td>
+                <td>{{history.previousbalance|number:'.2'}}</td>
+                <td><i class="bi bi-currency-rupee"></i>{{history.amount|number:'.2'}}</td>
+                <td><i class="bi bi-currency-rupee"></i>{{history.amount|number:'.2'}}</td>
+              </tr>
+            </tbody>
+          </table>
+     </div>
   </div>
 
 </div>

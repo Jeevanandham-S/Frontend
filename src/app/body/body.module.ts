@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BodyRoutingModule } from './body-routing.module';
 import { LoginPageBodyComponent } from './login-page-body/login-page-body.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
 import { RegsiterPageBodyComponent } from './regsiter-page-body/regsiter-page-body.component';
 import { UserPageBodyComponent } from './user-page-body/user-page-body.component';
@@ -14,6 +14,9 @@ import { BillSummaryPageBodyComponent } from './bill-summary-page-body/bill-summ
 import { DataComponent } from './data/data.component';
 import { CallComponent } from './call/call.component';
 import { SMSComponent } from './sms/sms.component';
+import { ViewPlansBodyComponent } from './view-plans-body/view-plans-body.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ContactUsBodyComponent } from './contact-us-body/contact-us-body.component';
 
 
 
@@ -27,14 +30,21 @@ import { SMSComponent } from './sms/sms.component';
     BillSummaryPageBodyComponent,
     DataComponent,
     CallComponent,
-    SMSComponent
+    SMSComponent,
+    ViewPlansBodyComponent,
+    ProfilePageComponent,
+    ContactUsBodyComponent
   ],
   imports: [
     CommonModule,
     BodyRoutingModule,
     ReactiveFormsModule,
     HeaderModule,
-    NgOtpInputModule
-  ]
+    NgOtpInputModule,
+    FormsModule,
+    
+  ],
+  exports:[ProfilePageComponent]
+
 })
 export class BodyModule { }

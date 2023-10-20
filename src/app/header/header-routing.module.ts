@@ -7,6 +7,8 @@ import { AddUserComponent } from '../admin/add-user/add-user.component';
 import { CallComponent } from '../body/call/call.component';
 import { DataComponent } from '../body/data/data.component';
 import { SMSComponent } from '../body/sms/sms.component';
+import { ViewPlansBodyComponent } from '../body/view-plans-body/view-plans-body.component';
+import { ContactUsBodyComponent } from '../body/contact-us-body/contact-us-body.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,14 @@ const routes: Routes = [
   {
     path: "sms",
     component: SMSComponent
+  },
+  {
+    path: "viewplans",
+    component: ViewPlansBodyComponent
+  },
+  {
+    path: "contactus",
+    component: ContactUsBodyComponent
   }
 ];
 

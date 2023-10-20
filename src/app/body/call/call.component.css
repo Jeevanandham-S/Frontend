@@ -1,0 +1,49 @@
+.main{
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  
+}
+
+.main-container{
+    background-color: rgb(234,239,249);
+    width: 100%;
+    height: 78.5%;
+}
+
+button{
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 28%;
+    background-color: transparent;
+    padding: 1%;
+    box-shadow: 2px 2px 3px black;
+    width: 5rem;
+    border-radius: 10px;
+    border-top: 1px solid white;
+    border-left:1px solid white ;
+    /* font-weight: 700; */
+    color: rgb(41,47,69);
+
+}
+
+a{
+    position: absolute;
+    left: 25%;
+    top: 106%;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: green;
+}
+
+input{
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2%;
+}

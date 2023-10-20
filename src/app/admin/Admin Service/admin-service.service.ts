@@ -3,6 +3,7 @@ import { User } from 'src/app/Model/User';
 import { HttpClient } from '@angular/common/http';
 import { Status } from 'src/app/Model/Status';
 import { Observable } from 'rxjs';
+import { Feedback } from 'src/app/Model/Feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,14 @@ export class AdminServiceService {
     
     return this.http.post<Status>(this.url,user);
     
+  }
+
+  getUsers(){
+    return this.http.get<any[]>(this.url)
+  }
+
+  getFeedbacks(){
+    return this.http.get<Feedback[]>('http://localhost:7000/feedback');
   }
 }
 

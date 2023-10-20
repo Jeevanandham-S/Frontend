@@ -1,1 +1,37 @@
-<p>data works!</p>
+<app-utilization-header></app-utilization-header>
+
+<div class="main">
+<table [cellPadding]="15">
+    <tr>
+        <td>Data used</td>
+        <td>
+            <input type="number" name="" id="" [(ngModel)]="data.dataused">
+            
+        </td>
+        <td>
+            <select name="" id="" [(ngModel)]="data.quantity">
+                <option value="KB">KB</option>
+                <option value="MB">MB</option>
+                <option value="GB">GB</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td><input type="text" value="{{data.date|date:'dd-MM-yyyy'}}" disabled></td>
+    </tr>
+    <tr>
+        <td>Session end time</td>
+        <td><input type="text"  [(ngModel)]="data.session" disabled></td>
+    </tr>
+    <tr>
+        <td><button (click)="onClickSubmit()">DATA</button> </td>
+        
+    </tr>
+    <tr>
+        <td>
+            <a routerLink="/user">Back to home page</a>
+        </td>
+    </tr>
+</table>
+</div>

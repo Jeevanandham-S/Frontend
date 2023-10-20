@@ -22,12 +22,12 @@
             <strong>Rs. {{receivedBill.currentcharge}}</strong>
         </small>
         <span>
-            <button [disabled]="paymentstatus">PAY NOW</button> <br> 
+            <button [disabled]="paymentstatus" routerLink="/summary">PAY NOW</button> <br> 
             
         </span>
         
     </div>
-    <a routerLink="/summary" style="padding-left: 63rem;">View Details <i class="bi bi-arrow-right ic"></i></a>
+    <!-- <a routerLink="/summary" style="padding-left: 63rem;">View Details <i class="bi bi-arrow-right ic"></i></a> -->
     <hr style="width: 93%;margin: 0 auto;margin-top: 1%;">
 
     <div class="late-charges">

@@ -1,9 +1,22 @@
+<app-admin-header></app-admin-header>
 <div class="reg-div-main">
+
+  <div id="load" *ngIf="loading">
+    <div>G</div>
+    <div>N</div>
+    <div>I</div>
+    <div>D</div>
+    <div>A</div>
+    <div>O</div>
+    <div>L</div>
+  </div>
 
   <div class="img-div">
     <img src="../../../assets/service-removebg-preview.png" alt="" width="100%" height="100%">
   </div>
   
+  <div class="main">
+
     <form action="/login" [formGroup]="userForm">
     
       <div class="row-div">
@@ -33,6 +46,7 @@
         <option *ngFor="let plan of plans" value="{{plan}}">${{plan}}</option>
       </select>
 
+      <br>
       <div class="row-div">
             <input type="radio" name="service" value="Prepaid" formControlName="service"> Prepaid
             <input type="radio" name="service" value="Postpaid" formControlName="service"> Postpaid
@@ -66,6 +80,9 @@
       </div>
      
     </form>
+
+  </div>
+    
     
     <!-- {{userForm|json}} -->
     </div>

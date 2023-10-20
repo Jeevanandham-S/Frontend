@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './admin/admin.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,6 +20,7 @@ import { AdminModule } from './admin/admin.module';
     BrowserModule,
     AppRoutingModule,
     ProductModuleModule,HttpClientModule, HeaderModule, BodyModule, BrowserAnimationsModule, AdminModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

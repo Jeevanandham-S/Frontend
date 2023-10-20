@@ -11,6 +11,7 @@ import { Status } from 'src/app/Model/Status';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent {
+  loading:boolean = false;
    st: any ;
   onClickRegister(){
     // alert('Registered successfully');
@@ -20,8 +21,9 @@ export class AddUserComponent {
   
       // Swal.fire("Registered successfully",'','success');
       this.aservice.addUser(this.userForm.value).subscribe((msg:Status)=>{this.st = msg.status});
-      
+      this.loading = true;
       timer(10000).subscribe(()=>{
+        this.loading = false;
       console.log(this.st);
 
         if(this.st == 'success'){
